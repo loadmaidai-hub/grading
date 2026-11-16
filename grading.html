@@ -3,124 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ระบบคำนวณและตัดเกรด - 969-042G4</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>ระบบตัดเกรด 969-042G4</title>
   <link rel="stylesheet" href="css/grading.css">
 </head>
 <body>
 
-  <header class="top-nav">
-    <div class="top-nav-left">
-      <h2 class="page-title">ระบบตัดเกรดรายวิชา 969-042G4</h2>
-    </div>
-    <div class="top-nav-right">
-      <div class="status-indicator-pill pill-online">
-        <span class="status-dot"></span>
-        <span class="status-text">พร้อมใช้งาน</span>
+  <header class="header-bar">
+    <div class="header-content">
+      <h2>📊 ระบบประมวลผลเกรด 969-042G4 (USES OF ARTIFICIAL INTELLIGENCE IN DAILY LIFE)</h2>
+      <div class="grade-scale-info">
+        <span><strong>A</strong> ≥ 85</span> | 
+        <span><strong>B+</strong> 80-84</span> | 
+        <span><strong>B</strong> 75-79</span> | 
+        <span><strong>C+</strong> 70-74</span> | 
+        <span><strong>C</strong> 65-69</span> | 
+        <span><strong>D+</strong> 60-64</span> | 
+        <span><strong>D</strong> 55-59</span> | 
+        <span style="color:#EF4444;"><strong>E</strong> &lt; 55</span>
       </div>
     </div>
   </header>
 
-  <main class="page-content">
-    <!-- กล่องสรุปข้อมูลวิชาและเงื่อนไข -->
-    <section class="course-info-banner">
-      <div class="cib-main">
-        <div class="cib-badge">📖 เงื่อนไขรายวิชา</div>
-        <h2 class="cib-title">USES OF ARTIFICIAL INTELLIGENCE IN DAILY LIFE</h2>
-        <p class="cib-warning">
-          * เงื่อนไขบังคับ: นักศึกษาต้องมีเวลาเรียนไม่น้อยกว่า 80% ตามระเบียบมหาวิทยาลัย จึงจะมีสิทธิ์ประเมินผล
-        </p>
-      </div>
-    </section>
-
-    <!-- Grid สัดส่วนคะแนน 4 ช่อง -->
-    <section class="stats-row">
-      <div class="stat-box grad-blue">
-        <div class="stat-header">
-          <span class="stat-lbl">Class Participation & Workshops</span>
-          <span class="stat-badge">40%</span>
-        </div>
-        <div class="stat-sub">การมีส่วนร่วมในคลาส + ชิ้นงาน Workshop</div>
+  <main class="main-container">
+    <div class="table-card">
+      <div class="table-controls">
+        <h3>ตารางบันทึกคะแนนรวม</h3>
+        <button class="btn-export" onclick="exportToCSV()">📥 ส่งออก CSV</button>
       </div>
 
-      <div class="stat-box grad-sky">
-        <div class="stat-header">
-          <span class="stat-lbl">Assessments</span>
-          <span class="stat-badge">30%</span>
-        </div>
-        <div class="stat-sub">สอบ Midterm 15% + สอบ Final 15%</div>
-      </div>
-
-      <div class="stat-box grad-amber">
-        <div class="stat-header">
-          <span class="stat-lbl">Capstone Mini-Project</span>
-          <span class="stat-badge">20%</span>
-        </div>
-        <div class="stat-sub">โครงงานกลุ่มประยุกต์ใช้ AI แก้โจทย์จริง</div>
-      </div>
-
-      <div class="stat-box grad-purple">
-        <div class="stat-header">
-          <span class="stat-lbl">AI Reflection Diary</span>
-          <span class="stat-badge">10%</span>
-        </div>
-        <div class="stat-sub">บันทึกการทดลองใช้เครื่องมือรายบุคคล</div>
-      </div>
-    </section>
-
-    <!-- ตารางเกณฑ์การตัดเกรด -->
-    <section class="content-card">
-      <div class="table-card-header">
-        <div class="table-title">
-          <span class="title-bullet"></span>
-          <h3>เกณฑ์การตัดเกรด (อิงเกณฑ์)</h3>
-        </div>
-      </div>
-      <div class="grading-scale-grid">
-        <div class="grade-item"><span class="grade-badge grade-a">A</span> 85 – 100 คะแนน</div>
-        <div class="grade-item"><span class="grade-badge grade-bplus">B+</span> 80 – 84 คะแนน</div>
-        <div class="grade-item"><span class="grade-badge grade-b">B</span> 75 – 79 คะแนน</div>
-        <div class="grade-item"><span class="grade-badge grade-cplus">C+</span> 70 – 74 คะแนน</div>
-        <div class="grade-item"><span class="grade-badge grade-c">C</span> 65 – 69 คะแนน</div>
-        <div class="grade-item"><span class="grade-badge grade-dplus">D+</span> 60 – 64 คะแนน</div>
-        <div class="grade-item"><span class="grade-badge grade-d">D</span> 55 – 59 คะแนน</div>
-        <div class="grade-item"><span class="grade-badge grade-f">F</span> &lt; 55 คะแนน</div>
-      </div>
-    </section>
-
-    <!-- ตารางคำนวณเกรดนักศึกษาแบบเรียลไทม์ -->
-    <section class="content-card" style="margin-top: 1.5rem;">
-      <div class="table-card-header">
-        <div class="table-title">
-          <span class="title-bullet"></span>
-          <h3>ตารางบันทึกคะแนนและประมวลผลเกรด</h3>
-        </div>
-        <button class="btn-cyan-gradient" onclick="exportGrades()">📥 ส่งออกเกรด (CSV)</button>
-      </div>
-
-      <div class="table-scroll-area">
-        <table class="data-table">
+      <div class="table-wrapper">
+        <table id="gradingTable">
           <thead>
-            <tr>
-              <th style="min-width: 100px;">รหัส</th>
+            <tr class="header-group">
+              <th colspan="2" class="group-info">ข้อมูลนักศึกษา</th>
+              <th colspan="11" class="group-att">คะแนนการเข้าชั้นเรียน (10 ครั้ง)</th>
+              <th colspan="5" class="group-hw">คะแนนการบ้าน (4 ครั้ง)</th>
+              <th colspan="3" class="group-final">สรุปผล (Final)</th>
+            </tr>
+            <tr class="header-sub">
+              <th style="min-width: 100px;">รหัสนักศึกษา</th>
               <th style="min-width: 160px;">ชื่อ - นามสกุล</th>
-              <th style="min-width: 90px; text-align: center;">เวลาเรียน ≥ 80%</th>
-              <th style="min-width: 100px; text-align: center;">Participation (40)</th>
-              <th style="min-width: 100px; text-align: center;">Assessments (30)</th>
-              <th style="min-width: 100px; text-align: center;">Project (20)</th>
-              <th style="min-width: 100px; text-align: center;">Diary (10)</th>
-              <th style="min-width: 90px; text-align: center;">คะแนนรวม</th>
-              <th style="min-width: 90px; text-align: center;">เกรดที่ได้</th>
+              <!-- เข้าชั้นเรียน 10 ช่อง -->
+              <th title="16 ก.ย. 2026">16/09</th>
+              <th title="23 ก.ย. 2026">23/09</th>
+              <th title="30 ก.ย. 2026">30/09</th>
+              <th title="07 ต.ค. 2026">07/10</th>
+              <th title="14 ต.ค. 2026">14/10</th>
+              <th title="21 ต.ค. 2026">21/10</th>
+              <th title="28 ต.ค. 2026">28/10</th>
+              <th title="04 พ.ย. 2026">04/11</th>
+              <th title="11 พ.ย. 2026">11/11</th>              
+              <th class="col-summary">รวมเข้าเรียน</th>
+              <!-- การบ้าน 4 ช่อง -->
+              <th>ครั้งที่ 1</th>
+              <th>ครั้งที่ 2</th>
+              <th>ครั้งที่ 3</th>
+              <th>ครั้งที่ 4</th>
+              <th class="col-summary">รวมการบ้าน</th>
+              <!-- โปรเจกต์ และ สรุป -->
+              <th>โปรเจกต์</th>
+              <th class="col-total">คะแนนรวม</th>
+              <th class="col-grade">เกรด</th>
             </tr>
           </thead>
-          <tbody id="gradingTableBody">
-            <!-- ข้อมูลนักศึกษาจะถูกสร้างผ่าน JavaScript -->
+          <tbody id="gradingBody">
+            <!-- ข้อมูลจะถูกโหลดผ่าน JavaScript -->
           </tbody>
         </table>
       </div>
-    </section>
+    </div>
   </main>
 
   <script src="js/grading.js"></script>
