@@ -87,3 +87,32 @@ input.score-in:focus { border-color: var(--primary); background: #EEF2FF; }
 .grade-Cplus, .grade-C { color: #D97706; }
 .grade-Dplus, .grade-D { color: #EA580C; }
 .grade-E { color: #DC2626; }
+
+/* ===== v3: หน้าใส่รหัส, ปุ่ม, สถานะบันทึก ===== */
+[hidden] { display: none !important; }
+.note { font-size: 0.85rem; color: #475569; margin-bottom: 0.8rem; }
+.table-controls { flex-wrap: wrap; gap: 0.6rem; }
+.btn-group { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.btn-backup { background: #4338CA; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; cursor: pointer; }
+.btn-secondary { background: #E2E8F0; color: #0F172A; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; cursor: pointer; }
+.btn-primary { background: #4338CA; color: white; border: none; padding: 0.7rem 1.4rem; border-radius: 8px; font-weight: 700; cursor: pointer; }
+.btn-primary:disabled { opacity: 0.6; cursor: wait; }
+.save-status { font-size: 0.85rem; color: #475569; }
+.save-status.ok { color: #059669; }
+.save-status.err { color: #DC2626; font-weight: 700; }
+
+.modal-backdrop { position: fixed; inset: 0; background: #0F172A; display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 1rem; }
+#pwModal { background: rgba(15, 23, 42, 0.85); }
+.modal { background: white; border-radius: 16px; padding: 1.8rem; width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 0.8rem; }
+.modal h3 { font-size: 1.15rem; }
+.modal-text { font-size: 0.9rem; color: #475569; }
+.modal-input { padding: 0.7rem; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 1rem; }
+.modal-input:focus { border-color: var(--primary); outline: none; background: #EEF2FF; }
+.modal-actions { display: flex; gap: 0.5rem; }
+.msg-err { color: #DC2626; font-size: 0.85rem; min-height: 1.1rem; }
+.link-btn { background: none; border: none; color: #475569; text-decoration: underline; cursor: pointer; font-size: 0.8rem; }
+
+/* ===== v5: ลืมรหัสผ่าน / รหัสกู้คืน ===== */
+.overlay { background: rgba(15, 23, 42, 0.85); }
+.mono { font-family: ui-monospace, Menlo, Consolas, monospace !important; font-size: 0.9rem; }
+.rc-code { font-family: ui-monospace, Menlo, Consolas, monospace !important; font-size: 1.05rem; font-weight: 800; background: #EEF2FF; border-radius: 8px; padding: 0.9rem; text-align: center; word-break: break-all; user-select: all; }

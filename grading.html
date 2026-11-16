@@ -3,78 +3,143 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
   <title>ระบบประมวลผลเกรด 969-042G4</title>
   <link rel="stylesheet" href="css/grading.css">
 </head>
 <body>
 
-  <header class="header-bar">
-    <div class="header-content">
-      <h2>📊 ระบบประมวลผลเกรด 969-042G4 (USES OF ARTIFICIAL INTELLIGENCE IN DAILY LIFE)</h2>
-      <div class="grade-scale-info">
-        <span><strong>A</strong> ≥ 85</span> | 
-        <span><strong>B+</strong> 80-84</span> | 
-        <span><strong>B</strong> 75-79</span> | 
-        <span><strong>C+</strong> 70-74</span> | 
-        <span><strong>C</strong> 65-69</span> | 
-        <span><strong>D+</strong> 60-64</span> | 
-        <span><strong>D</strong> 55-59</span> | 
-        <span style="color:#EF4444;"><strong>E</strong> &lt; 55</span>
+  <!-- หน้าใส่รหัสผ่าน: ตารางจะไม่ถูกสร้างจนกว่าจะใส่รหัสถูก -->
+  <div id="lockScreen" class="modal-backdrop">
+    <div class="modal">
+      <h3>🔒 ระบบประมวลผลเกรด 969-042G4</h3>
+      <p class="modal-text">ใส่รหัสผ่านเพื่อเข้าดูและกรอกคะแนน</p>
+      <input type="password" id="pwInput" class="modal-input" placeholder="รหัสผ่าน" autocomplete="current-password" autofocus>
+      <div id="lockMsg" class="msg-err" role="alert"></div>
+      <button id="unlockBtn" class="btn-primary">ปลดล็อก</button>
+      <button id="forgotBtn" class="link-btn">ลืมรหัสผ่าน?</button>
+      <button id="resetLocalBtn" class="link-btn" hidden>ล้างข้อมูลที่บันทึกในเครื่องนี้ แล้วใช้ไฟล์ต้นฉบับ</button>
+    </div>
+  </div>
+
+  <!-- หน้าต่างเปลี่ยนรหัสผ่าน -->
+  <div id="pwModal" class="modal-backdrop" hidden>
+    <div class="modal">
+      <h3>🔑 เปลี่ยนรหัสผ่าน</h3>
+      <p class="modal-text">ตั้งรหัสยาวอย่างน้อย 12 ตัวอักษร ถ้าลืมรหัส จะกู้ข้อมูลไม่ได้</p>
+      <input type="password" id="newPw1" class="modal-input" placeholder="รหัสผ่านใหม่" autocomplete="new-password">
+      <input type="password" id="newPw2" class="modal-input" placeholder="พิมพ์รหัสผ่านใหม่อีกครั้ง" autocomplete="new-password">
+      <div id="pwMsg" class="msg-err" role="alert"></div>
+      <div class="modal-actions">
+        <button id="pwSaveBtn" class="btn-primary">เปลี่ยนรหัส</button>
+        <button id="pwCancelBtn" class="btn-secondary">ยกเลิก</button>
       </div>
     </div>
-  </header>
+  </div>
 
-  <main class="main-container">
-    <div class="table-card">
-      <div class="table-controls">
-        <h3>ตารางบันทึกคะแนนรวม</h3>
-        <button class="btn-export" onclick="exportToCSV()">📥 ส่งออก CSV</button>
+  <!-- ลืมรหัสผ่าน: ใช้รหัสกู้คืนแล้วตั้งรหัสผ่านใหม่ -->
+  <div id="forgotModal" class="modal-backdrop overlay" hidden>
+    <div class="modal">
+      <h3>🛟 ลืมรหัสผ่าน</h3>
+      <p class="modal-text">ใส่รหัสกู้คืน (24 ตัวอักษร ที่จดไว้ตอนตั้งค่า) แล้วตั้งรหัสผ่านใหม่ ข้อมูลจะไม่หาย</p>
+      <input type="text" id="fgCode" class="modal-input mono" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx-xxxx" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <input type="password" id="fgPw1" class="modal-input" placeholder="รหัสผ่านใหม่ (อย่างน้อย 12 ตัวอักษร)" autocomplete="new-password">
+      <input type="password" id="fgPw2" class="modal-input" placeholder="พิมพ์รหัสผ่านใหม่อีกครั้ง" autocomplete="new-password">
+      <div id="fgMsg" class="msg-err" role="alert"></div>
+      <div class="modal-actions">
+        <button id="fgSaveBtn" class="btn-primary">ตั้งรหัสผ่านใหม่</button>
+        <button id="fgCancelBtn" class="btn-secondary">ยกเลิก</button>
       </div>
+      <button id="fgResetBtn" class="link-btn" hidden>ล้างข้อมูลที่บันทึกในเครื่องนี้ แล้วใช้ไฟล์ต้นฉบับ</button>
+    </div>
+  </div>
 
-      <div class="table-wrapper">
-        <table id="gradingTable">
-          <thead>
-            <tr class="header-group">
-              <th colspan="2" class="group-info">ข้อมูลนักศึกษา</th>
-              <th colspan="11" class="group-att">คะแนนการเข้าชั้นเรียนและควิซ (10 ครั้ง) - 25%</th>
-              <th colspan="5" class="group-hw">คะแนนการบ้านและเวิร์กชอป (4 ครั้ง) - 30%</th>
-              <th colspan="3" class="group-final">สรุปผล (Final) - 45%</th>
-            </tr>
-            <tr class="header-sub">
-              <th style="min-width: 100px;">รหัสนักศึกษา</th>
-              <th style="min-width: 160px;">ชื่อ - นามสกุล</th>
-              <!-- เข้าชั้นเรียน 10 ช่อง -->
-              <th title="16 ก.ย. 2026">16/09</th>
-              <th title="23 ก.ย. 2026">23/09</th>
-              <th title="30 ก.ย. 2026">30/09</th>
-              <th title="07 ต.ค. 2026">07/10</th>
-              <th title="14 ต.ค. 2026">14/10</th>
-              <th title="21 ต.ค. 2026">21/10</th>
-              <th title="28 ต.ค. 2026">28/10</th>
-              <th title="04 พ.ย. 2026">04/11</th>
-              <th title="11 พ.ย. 2026">11/11</th>
-              <th title="18 พ.ย. 2026">18/11</th>
-              <th class="col-summary">รวมเข้าเรียน</th>
-              <!-- การบ้าน 4 ช่อง -->
-              <th>ครั้งที่ 1</th>
-              <th>ครั้งที่ 2</th>
-              <th>ครั้งที่ 3</th>
-              <th>ครั้งที่ 4</th>
-              <th class="col-summary">รวมการบ้าน</th>
-              <!-- โปรเจกต์ และ สรุป -->
-              <th>Final Project</th>
-              <th class="col-total">คะแนนรวม</th>
-              <th class="col-grade">เกรด</th>
-            </tr>
-          </thead>
-          <tbody id="gradingBody">
-            <!-- ข้อมูลจะถูกโหลดผ่าน JavaScript -->
-          </tbody>
-        </table>
+  <!-- แสดงรหัสกู้คืน (แสดงครั้งเดียว) -->
+  <div id="rcModal" class="modal-backdrop overlay" hidden>
+    <div class="modal">
+      <h3 id="rcTitle">🛟 รหัสกู้คืน</h3>
+      <p class="modal-text">จดหรือเก็บรหัสนี้ไว้ที่ปลอดภัย (เช่นแอป Passwords ใน Mac) ระบบจะไม่แสดงอีก ใครมีรหัสนี้ก็เปิดข้อมูลได้ จึงอย่าเก็บไว้ในเว็บหรือส่งให้ผู้อื่น</p>
+      <div id="rcCode" class="rc-code"></div>
+      <div class="modal-actions">
+        <button id="rcCopyBtn" class="btn-secondary">คัดลอก</button>
+        <button id="rcDoneBtn" class="btn-primary">เก็บไว้แล้ว</button>
       </div>
     </div>
-  </main>
+  </div>
 
+  <div id="app" hidden>
+    <header class="header-bar">
+      <div class="header-content">
+        <h2>📊 ระบบประมวลผลเกรด 969-042G4 (USES OF ARTIFICIAL INTELLIGENCE IN DAILY LIFE)</h2>
+        <div class="grade-scale-info">
+          <span><strong>A</strong> ≥ 85</span> |
+          <span><strong>B+</strong> 80-84.99</span> |
+          <span><strong>B</strong> 75-79.99</span> |
+          <span><strong>C+</strong> 70-74.99</span> |
+          <span><strong>C</strong> 65-69.99</span> |
+          <span><strong>D+</strong> 60-64.99</span> |
+          <span><strong>D</strong> 55-59.99</span> |
+          <span style="color:#EF4444;"><strong>E</strong> &lt; 55</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-container">
+      <div class="table-card">
+        <div class="table-controls">
+          <h3>ตารางบันทึกคะแนนรวม</h3>
+          <div class="btn-group">
+            <span id="saveStatus" class="save-status"></span>
+            <button class="btn-export" id="csvBtn">📥 ส่งออก CSV</button>
+            <button class="btn-backup" id="backupBtn">💾 ดาวน์โหลดไฟล์สำรอง</button>
+            <button class="btn-secondary" id="changePwBtn">🔑 เปลี่ยนรหัส</button>
+            <button class="btn-secondary" id="rcBtn">🛟 รหัสกู้คืนใหม่</button>
+            <button class="btn-secondary" id="lockBtn">🔒 ล็อก</button>
+          </div>
+        </div>
+        <p class="note">ช่องกรอกเป็นคะแนนดิบ (เข้าเรียนครั้งละไม่เกิน 1 · การบ้านครั้งละไม่เกิน 11.5 · โปรเจกต์ไม่เกิน 45) ระบบแปลงเป็นสัดส่วน 25 / 30 / 45 ให้อัตโนมัติ · ช่องว่าง = ยังไม่ได้กรอก (ไม่ใช่ 0) · บันทึกอัตโนมัติ (เข้ารหัส) ในเบราว์เซอร์เครื่องนี้ · อย่าลืมกด “ดาวน์โหลดไฟล์สำรอง” เป็นระยะ · ล็อกตัวเองเมื่อไม่ได้ใช้งาน 15 นาที</p>
+
+        <div class="table-wrapper">
+          <table id="gradingTable">
+            <thead>
+              <tr class="header-group">
+                <th colspan="2" class="group-info">ข้อมูลนักศึกษา</th>
+                <th colspan="10" class="group-att">คะแนนการเข้าชั้นเรียนและควิซ (9 ครั้ง) - 25%</th>
+                <th colspan="5" class="group-hw">คะแนนการบ้านและเวิร์กชอป (4 ครั้ง) - 30%</th>
+                <th colspan="3" class="group-final">สรุปผล (Final) - 45%</th>
+              </tr>
+              <tr class="header-sub">
+                <th style="min-width: 100px;">รหัสนักศึกษา</th>
+                <th style="min-width: 160px;">ชื่อ - นามสกุล</th>
+                <th title="16 ก.ย. 2026">16/09</th>
+                <th title="23 ก.ย. 2026">23/09</th>
+                <th title="30 ก.ย. 2026">30/09</th>
+                <th title="07 ต.ค. 2026">07/10</th>
+                <th title="14 ต.ค. 2026">14/10</th>
+                <th title="21 ต.ค. 2026">21/10</th>
+                <th title="28 ต.ค. 2026">28/10</th>
+                <th title="04 พ.ย. 2026">04/11</th>
+                <th title="11 พ.ย. 2026">11/11</th>
+                <th class="col-summary">รวมเข้าเรียน<br>(เต็ม 25)</th>
+                <th>ครั้งที่ 1</th>
+                <th>ครั้งที่ 2</th>
+                <th>ครั้งที่ 3</th>
+                <th>ครั้งที่ 4</th>
+                <th class="col-summary">รวมการบ้าน<br>(เต็ม 30)</th>
+                <th>Final Project<br>(เต็ม 45)</th>
+                <th class="col-total">คะแนนรวม<br>(เต็ม 100)</th>
+                <th class="col-grade">เกรด</th>
+              </tr>
+            </thead>
+            <tbody id="gradingBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ข้อมูลนักศึกษา (เข้ารหัสแล้ว) ต้องโหลดก่อน grading.js -->
+  <script src="data/grades.enc.js"></script>
   <script src="js/grading.js"></script>
 </body>
 </html>
