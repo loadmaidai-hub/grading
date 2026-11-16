@@ -1,0 +1,89 @@
+/* ==========================================================================
+   FONT CONFIGURATION: LINE Seed Sans TH
+   ========================================================================== */
+@font-face {
+  font-family: 'LINE Seed Sans TH';
+  src: local('LINE Seed Sans TH Regular'), local('LINE Seed Sans TH'),
+       url('https://cdn.jsdelivr.net/gh/line/line-seed-sans-th@main/fonts/woff2/LINESeedSansTH_W_Rg.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LINE Seed Sans TH';
+  src: local('LINE Seed Sans TH Bold'), local('LINESeedSansTH-Bold'),
+       url('https://cdn.jsdelivr.net/gh/line/line-seed-sans-th@main/fonts/woff2/LINESeedSansTH_W_Bd.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LINE Seed Sans TH';
+  src: local('LINE Seed Sans TH Heavy'), local('LINE Seed Sans TH ExtraBold'),
+       url('https://cdn.jsdelivr.net/gh/line/line-seed-sans-th@main/fonts/woff2/LINESeedSansTH_W_XBd.woff2') format('woff2');
+  font-weight: 800 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --primary: #4338CA;
+  --dark: #0F172A;
+  --bg-main: #F8FAFC;
+  --border-soft: #E2E8F0;
+  --font-family: 'LINE Seed Sans TH', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+  font-family: var(--font-family) !important;
+}
+
+body { background: var(--bg-main); color: var(--dark); padding-bottom: 2rem; }
+
+.header-bar {
+  background: white;
+  padding: 1.2rem 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky; top: 0; z-index: 100;
+}
+.header-content h2 { font-size: 1.2rem; margin-bottom: 0.4rem; }
+.grade-scale-info { font-size: 0.85rem; color: #475569; }
+.grade-scale-info span { margin-right: 0.5rem; }
+
+.main-container { padding: 1.5rem; max-width: 1600px; margin: 0 auto; }
+.table-card { background: white; border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid var(--border-soft); }
+.table-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.btn-export { background: #059669; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; cursor: pointer; }
+
+.table-wrapper { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border-soft); }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: center; }
+th, td { padding: 0.6rem; border: 1px solid var(--border-soft); white-space: nowrap; }
+
+/* หัวตารางจัดกลุ่ม */
+.header-group th { font-weight: 800; font-size: 0.95rem; padding: 0.8rem; color: white; }
+.group-info { background: #475569; }
+.group-att { background: #3B82F6; }
+.group-hw { background: #F59E0B; }
+.group-final { background: #4338CA; }
+
+.header-sub th { background: #F8FAFC; color: #334155; font-weight: 700; }
+.header-sub th:nth-child(1), .header-sub th:nth-child(2) { text-align: left; }
+td:nth-child(1), td:nth-child(2) { text-align: left; font-weight: 700; }
+
+input.score-in { width: 50px; text-align: center; padding: 0.3rem; border: 1px solid #CBD5E1; border-radius: 4px; outline: none; font-weight: 700; }
+input.score-in:focus { border-color: var(--primary); background: #EEF2FF; }
+
+.col-summary { background: #F1F5F9; font-weight: 800; color: #0F172A; }
+.col-total { background: #EEF2FF; font-weight: 800; color: var(--primary); font-size: 0.95rem; }
+.col-grade { font-weight: 900; font-size: 1.05rem; }
+
+.grade-A { color: #059669; }
+.grade-Bplus, .grade-B { color: #2563EB; }
+.grade-Cplus, .grade-C { color: #D97706; }
+.grade-Dplus, .grade-D { color: #EA580C; }
+.grade-E { color: #DC2626; }
