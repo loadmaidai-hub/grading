@@ -1,4 +1,4 @@
-// ข้อมูลดึงจากไฟล์ Excel "USES OF ARTIFICIAL INTELLIGENCE IN DAILY LIFE (1).xlsx"
+// ข้อมูลดึงจากไฟล์ Excel "USES OF ARTIFICIAL INTELLIGENCE IN DAILY LIFE (1).xlsx" (รวมนักศึกษา 65 คน)
 const studentsData = [
   {"id": "6730611001", "name": "นาย คุณานนต์ แพใหญ่", "attendance": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 0], "hw": [0, 11.5, 11.5, 11.5], "project": 45.0},
   {"id": "6730611002", "name": "น.ส. สุชัญญา หลายกิจวุฒิพันธ์", "attendance": [1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.5, 1.0, 0], "hw": [11.5, 11.5, 11.5, 11.5], "project": 45.0},
@@ -90,7 +90,7 @@ function renderTable() {
       <td>${std.name}</td>
     `;
 
-    // 10 ช่องเช็คอิน
+    // 10 ช่องเข้าเรียน
     let sumAtt = 0;
     for (let i = 0; i < 10; i++) {
       let val = std.attendance[i] || 0;
@@ -109,7 +109,7 @@ function renderTable() {
     html += `<td class="col-summary">${sumHw.toFixed(1)}</td>`;
 
     // คะแนนโปรเจกต์
-    html += `<td><input type="number" class="score-in" style="width:60px; font-weight:800;" value="${std.project}" step="0.5" min="0" onchange="updateScore(${sIndex}, 'proj', 0, this.value)"></td>`;
+    html += `<td><input type="number" class="score-in" style="width:70px; font-weight:800;" value="${std.project}" step="0.5" min="0" onchange="updateScore(${sIndex}, 'proj', 0, this.value)"></td>`;
 
     // สรุปเกรด
     let totalScore = sumAtt + sumHw + std.project;
@@ -141,7 +141,7 @@ function updateScore(studentIndex, type, subIndex, value) {
 }
 
 function exportToCSV() {
-  let csv = "\uFEFFรหัสนักศึกษา,ชื่อ-นามสกุล,เข้าเรียน1,เข้าเรียน2,เข้าเรียน3,เข้าเรียน4,เข้าเรียน5,เข้าเรียน6,เข้าเรียน7,เข้าเรียน8,เข้าเรียน9,เข้าเรียน10,รวมเข้าเรียน,การบ้าน1,การบ้าน2,การบ้าน3,การบ้าน4,รวมการบ้าน,โปรเจกต์,คะแนนรวม,เกรด\n";
+  let csv = "\uFEFFรหัสนักศึกษา,ชื่อ-นามสกุล,เข้าเรียน1,เข้าเรียน2,เข้าเรียน3,เข้าเรียน4,เข้าเรียน5,เข้าเรียน6,เข้าเรียน7,เข้าเรียน8,เข้าเรียน9,เข้าเรียน10,รวมเข้าเรียน,การบ้าน1,การบ้าน2,การบ้าน3,การบ้าน4,รวมการบ้าน,Final Project,คะแนนรวม,เกรด\n";
 
   studentsData.forEach(std => {
     let att = std.attendance;
@@ -158,7 +158,7 @@ function exportToCSV() {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = `Grading_969-042G4_LINE_Seed.csv`;
+  link.download = `Grading_969-042G4_Summary.csv`;
   link.click();
 }
 
