@@ -90,7 +90,7 @@
                 <th>การบ้าน 3</th>
                 <th>การบ้าน 4</th>
                 <th class="col-summary">รวมการบ้าน<br><span class="sub-date">(30%)</span></th>
-                <th>โปรเจกต์<br><span class="sub-date">(45%)</span></th>
+                <th>โปรเจกต์<br><span class="sub-date">(45)</span></th>
                 <th class="col-total">คะแนนรวม</th>
                 <th class="col-grade">เกรด</th>
               </tr>
@@ -103,16 +103,13 @@
 
     <!-- ==========================================================
          แท็บที่ 2: จัดการคะแนนโปรเจกต์
-         - แถวแรกเป็น "ลำดับ"
-         - วางเลขกลุ่มอันเดียว และหัวข้อโปรเจกต์อันเดียวต่อกลุ่ม
-         - ล็อคช่อง ลำดับ, เลขกลุ่ม, รหัสนักศึกษา, ชื่อ - นามสกุล, หัวข้อโปรเจกต์
          ========================================================== -->
     <section id="viewGroupTab" class="tab-view">
       <div class="table-card">
         <div class="table-controls">
           <div>
-            <h3>จัดการคะแนนโปรเจกต์ (เรียงลำดับตามรายชื่อ)</h3>
-            <p class="sub-hint">ช่องลำดับ เลขกลุ่ม รหัสนักศึกษา ชื่อ - นามสกุล และหัวข้อโปรเจกต์ถูกล็อคไว้ | เลขกลุ่มและหัวข้อโปรเจกต์แสดงเพียงอันเดียวต่อกลุ่ม</p>
+            <h3>จัดการคะแนนโปรเจกต์ (ข้อมูลจากรูป 27 กลุ่ม)</h3>
+            <p class="sub-hint">* ช่อง ลำดับ, รหัสนักศึกษา, ชื่อ - นามสกุล และ หัวข้อโปรเจกต์ ถูกล็อคไว้ | แสดงลำดับและหัวข้อโปรเจกต์เพียงอันเดียวต่อกลุ่ม</p>
           </div>
           <div class="btn-group">
             <button type="button" class="btn-add-group" onclick="addProjectMemberRow()">
@@ -128,13 +125,13 @@
         </div>
 
         <div class="rubric-legend">
-          <div class="rubric-chip">1. ที่มาและแนวคิด <strong>(5%)</strong></div>
-          <div class="rubric-chip">2. การใช้ AI <strong>(10%)</strong></div>
-          <div class="rubric-chip">3. ผลงานที่ทำได้จริง <strong>(10%)</strong></div>
-          <div class="rubric-chip">4. การออกแบบและ UX <strong>(5%)</strong></div>
-          <div class="rubric-chip">5. เอกสารประกอบ <strong>(5%)</strong></div>
-          <div class="rubric-chip">6. การใช้ AI อย่างรับผิดชอบ <strong>(5%)</strong></div>
-          <div class="rubric-chip">7. การนำเสนอและสาธิต <strong>(5%)</strong></div>
+          <div class="rubric-chip">1. ที่มาและแนวคิด <strong>(5)</strong></div>
+          <div class="rubric-chip">2. การใช้ AI <strong>(10)</strong></div>
+          <div class="rubric-chip">3. ผลงานที่ทำได้จริง <strong>(10)</strong></div>
+          <div class="rubric-chip">4. การออกแบบและ UX <strong>(5)</strong></div>
+          <div class="rubric-chip">5. เอกสารประกอบ <strong>(5)</strong></div>
+          <div class="rubric-chip">6. การใช้ AI อย่างรับผิดชอบ <strong>(5)</strong></div>
+          <div class="rubric-chip">7. การนำเสนอและสาธิต <strong>(5)</strong></div>
           <div class="rubric-chip rubric-total">รวมทั้งหมด <strong>45</strong> คะแนน</div>
         </div>
 
@@ -142,23 +139,22 @@
           <table id="groupScoreTable">
             <thead>
               <tr class="header-group">
-                <th colspan="5" class="group-info">ลำดับ ข้อมูลกลุ่ม และนักศึกษา (ล็อคข้อมูล)</th>
+                <th colspan="4" class="group-info">ลำดับ ข้อมูลนักศึกษา และหัวข้อโปรเจกต์ (ล็อคข้อมูล)</th>
                 <th colspan="7" class="group-hw">ช่องกรอกคะแนน 7 เกณฑ์ (รวม 45 คะแนน)</th>
                 <th colspan="2" class="group-final">สรุปและจัดการ</th>
               </tr>
               <tr class="header-sub">
-                <th class="locked-head" style="min-width: 65px;">ลำดับ</th>
-                <th class="locked-head" style="min-width: 85px;">เลขกลุ่ม</th>
+                <th class="locked-head" style="min-width: 75px;">ลำดับ</th>
                 <th class="locked-head" style="min-width: 110px;">รหัสนักศึกษา</th>
                 <th class="locked-head" style="min-width: 195px;">ชื่อ - นามสกุล</th>
-                <th class="locked-head" style="min-width: 190px;">หัวข้อโปรเจกต์</th>
-                <th title="1. ที่มาและแนวคิด (5%)">1. แนวคิด<br><span class="sub-date">(5%)</span></th>
-                <th title="2. การใช้ AI (10%)">2. ใช้ AI<br><span class="sub-date">(10%)</span></th>
-                <th title="3. ผลงานที่ทำได้จริง (10%)">3. ผลงานจริง<br><span class="sub-date">(10%)</span></th>
-                <th title="4. การออกแบบและประสบการณ์ผู้ใช้ (5%)">4. ออกแบบ/UX<br><span class="sub-date">(5%)</span></th>
-                <th title="5. เอกสารประกอบ (5%)">5. เอกสาร<br><span class="sub-date">(5%)</span></th>
-                <th title="6. การใช้ AI อย่างรับผิดชอบ (5%)">6. รับผิดชอบ<br><span class="sub-date">(5%)</span></th>
-                <th title="7. การนำเสนอและสาธิต (5%)">7. นำเสนอ<br><span class="sub-date">(5%)</span></th>
+                <th class="locked-head" style="min-width: 240px;">หัวข้อโปรเจกต์</th>
+                <th title="1. ที่มาและแนวคิด (เต็ม 5)">1. แนวคิด<br><span class="sub-date">(/5)</span></th>
+                <th title="2. การใช้ AI (เต็ม 10)">2. ใช้ AI<br><span class="sub-date">(/10)</span></th>
+                <th title="3. ผลงานที่ทำได้จริง (เต็ม 10)">3. ผลงานจริง<br><span class="sub-date">(/10)</span></th>
+                <th title="4. การออกแบบและประสบการณ์ผู้ใช้ (เต็ม 5)">4. ออกแบบ/UX<br><span class="sub-date">(/5)</span></th>
+                <th title="5. เอกสารประกอบ (เต็ม 5)">5. เอกสาร<br><span class="sub-date">(/5)</span></th>
+                <th title="6. การใช้ AI อย่างรับผิดชอบ (เต็ม 5)">6. รับผิดชอบ<br><span class="sub-date">(/5)</span></th>
+                <th title="7. การนำเสนอและสาธิต (เต็ม 5)">7. นำเสนอ<br><span class="sub-date">(/5)</span></th>
                 <th class="col-total">คะแนนรวม</th>
                 <th style="width: 75px;">จัดการ</th>
               </tr>
