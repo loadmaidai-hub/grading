@@ -3,143 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>ระบบประมวลผลเกรด 969-042G4</title>
+  <title>ระบบตัดเกรด 969-042G4</title>
   <link rel="stylesheet" href="css/grading.css">
 </head>
 <body>
 
-  <!-- หน้าใส่รหัสผ่าน: ตารางจะไม่ถูกสร้างจนกว่าจะใส่รหัสถูก -->
-  <div id="lockScreen" class="modal-backdrop">
-    <div class="modal">
-      <h3>🔒 ระบบประมวลผลเกรด 969-042G4</h3>
-      <p class="modal-text">ใส่รหัสผ่านเพื่อเข้าดูและกรอกคะแนน</p>
-      <input type="password" id="pwInput" class="modal-input" placeholder="รหัสผ่าน" autocomplete="current-password" autofocus>
-      <div id="lockMsg" class="msg-err" role="alert"></div>
-      <button id="unlockBtn" class="btn-primary">ปลดล็อก</button>
-      <button id="forgotBtn" class="link-btn">ลืมรหัสผ่าน?</button>
-      <button id="resetLocalBtn" class="link-btn" hidden>ล้างข้อมูลที่บันทึกในเครื่องนี้ แล้วใช้ไฟล์ต้นฉบับ</button>
-    </div>
-  </div>
-
-  <!-- หน้าต่างเปลี่ยนรหัสผ่าน -->
-  <div id="pwModal" class="modal-backdrop" hidden>
-    <div class="modal">
-      <h3>🔑 เปลี่ยนรหัสผ่าน</h3>
-      <p class="modal-text">ตั้งรหัสยาวอย่างน้อย 12 ตัวอักษร ถ้าลืมรหัส จะกู้ข้อมูลไม่ได้</p>
-      <input type="password" id="newPw1" class="modal-input" placeholder="รหัสผ่านใหม่" autocomplete="new-password">
-      <input type="password" id="newPw2" class="modal-input" placeholder="พิมพ์รหัสผ่านใหม่อีกครั้ง" autocomplete="new-password">
-      <div id="pwMsg" class="msg-err" role="alert"></div>
-      <div class="modal-actions">
-        <button id="pwSaveBtn" class="btn-primary">เปลี่ยนรหัส</button>
-        <button id="pwCancelBtn" class="btn-secondary">ยกเลิก</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ลืมรหัสผ่าน: ใช้รหัสกู้คืนแล้วตั้งรหัสผ่านใหม่ -->
-  <div id="forgotModal" class="modal-backdrop overlay" hidden>
-    <div class="modal">
-      <h3>🛟 ลืมรหัสผ่าน</h3>
-      <p class="modal-text">ใส่รหัสกู้คืน (24 ตัวอักษร ที่จดไว้ตอนตั้งค่า) แล้วตั้งรหัสผ่านใหม่ ข้อมูลจะไม่หาย</p>
-      <input type="text" id="fgCode" class="modal-input mono" placeholder="xxxx-xxxx-xxxx-xxxx-xxxx-xxxx" autocomplete="off" autocapitalize="off" spellcheck="false">
-      <input type="password" id="fgPw1" class="modal-input" placeholder="รหัสผ่านใหม่ (อย่างน้อย 12 ตัวอักษร)" autocomplete="new-password">
-      <input type="password" id="fgPw2" class="modal-input" placeholder="พิมพ์รหัสผ่านใหม่อีกครั้ง" autocomplete="new-password">
-      <div id="fgMsg" class="msg-err" role="alert"></div>
-      <div class="modal-actions">
-        <button id="fgSaveBtn" class="btn-primary">ตั้งรหัสผ่านใหม่</button>
-        <button id="fgCancelBtn" class="btn-secondary">ยกเลิก</button>
-      </div>
-      <button id="fgResetBtn" class="link-btn" hidden>ล้างข้อมูลที่บันทึกในเครื่องนี้ แล้วใช้ไฟล์ต้นฉบับ</button>
-    </div>
-  </div>
-
-  <!-- แสดงรหัสกู้คืน (แสดงครั้งเดียว) -->
-  <div id="rcModal" class="modal-backdrop overlay" hidden>
-    <div class="modal">
-      <h3 id="rcTitle">🛟 รหัสกู้คืน</h3>
-      <p class="modal-text">จดหรือเก็บรหัสนี้ไว้ที่ปลอดภัย (เช่นแอป Passwords ใน Mac) ระบบจะไม่แสดงอีก ใครมีรหัสนี้ก็เปิดข้อมูลได้ จึงอย่าเก็บไว้ในเว็บหรือส่งให้ผู้อื่น</p>
-      <div id="rcCode" class="rc-code"></div>
-      <div class="modal-actions">
-        <button id="rcCopyBtn" class="btn-secondary">คัดลอก</button>
-        <button id="rcDoneBtn" class="btn-primary">เก็บไว้แล้ว</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="app" hidden>
-    <header class="header-bar">
+  <header class="header-bar">
+    <div class="header-top">
       <div class="header-content">
-        <h2>📊 ระบบประมวลผลเกรด 969-042G4 (USES OF ARTIFICIAL INTELLIGENCE IN DAILY LIFE)</h2>
+        <h2>ระบบประมวลผลเกรด 969-042G4 (USES OF ARTIFICIAL INTELLIGENCE IN DAILY LIFE)</h2>
         <div class="grade-scale-info">
           <span><strong>A</strong> ≥ 85</span> |
-          <span><strong>B+</strong> 80-84.99</span> |
-          <span><strong>B</strong> 75-79.99</span> |
-          <span><strong>C+</strong> 70-74.99</span> |
-          <span><strong>C</strong> 65-69.99</span> |
-          <span><strong>D+</strong> 60-64.99</span> |
-          <span><strong>D</strong> 55-59.99</span> |
-          <span style="color:#EF4444;"><strong>E</strong> &lt; 55</span>
+          <span><strong>B+</strong> 80-84</span> |
+          <span><strong>B</strong> 75-79</span> |
+          <span><strong>C+</strong> 70-74</span> |
+          <span><strong>C</strong> 65-69</span> |
+          <span><strong>D+</strong> 60-64</span> |
+          <span><strong>D</strong> 55-59</span> |
+          <span class="scale-e"><strong>E</strong> &lt; 55</span>
+          <span id="realtimeSaveBadge" class="realtime-badge">บันทึกเรียลไทม์พร้อมใช้งาน</span>
         </div>
       </div>
-    </header>
+      <div class="tab-nav">
+        <button type="button" id="tabBtnMain" class="tab-btn active" onclick="switchTab('main')">
+          หน้าแรก (ตารางคะแนนรวม)
+        </button>
+        <button type="button" id="tabBtnGroup" class="tab-btn" onclick="switchTab('group')">
+          จัดการคะแนนโปรเจกต์ (7 เกณฑ์ / 45 คะแนน)
+        </button>
+      </div>
+    </div>
+  </header>
 
-    <main class="main-container">
+  <main class="main-container">
+
+    <!-- ==========================================================
+         แท็บที่ 1: หน้าแรก - ตารางบันทึกคะแนนรวมและตัดเกรด (เข้าเรียน 9 ครั้ง)
+         ========================================================== -->
+    <section id="viewMainTab" class="tab-view active">
       <div class="table-card">
         <div class="table-controls">
-          <h3>ตารางบันทึกคะแนนรวม</h3>
+          <div>
+            <h3>ตารางบันทึกคะแนนรวม (65 คน)</h3>
+            <p class="sub-hint">* เข้าเรียน 9 ครั้ง (ครั้งที่ 2, 6, 7 ยกคลาส คิด 1.0 ทุกคน) | ตรึงรหัสนักศึกษาและชื่อ-นามสกุลไว้เสมอ | บันทึกเรียลไทม์อัตโนมัติ</p>
+          </div>
           <div class="btn-group">
-            <span id="saveStatus" class="save-status"></span>
-            <button class="btn-export" id="csvBtn">📥 ส่งออก CSV</button>
-            <button class="btn-backup" id="backupBtn">💾 ดาวน์โหลดไฟล์สำรอง</button>
-            <button class="btn-secondary" id="changePwBtn">🔑 เปลี่ยนรหัส</button>
-            <button class="btn-secondary" id="rcBtn">🛟 รหัสกู้คืนใหม่</button>
-            <button class="btn-secondary" id="lockBtn">🔒 ล็อก</button>
+            <button type="button" class="btn-sync" onclick="syncProjectScoresByStudentId()">
+              ดึงคะแนนโปรเจกต์ตามรหัสนักศึกษา
+            </button>
+            <button type="button" class="btn-export" onclick="exportToCSV()">
+              ส่งออก CSV (คะแนนรวม + โปรเจกต์)
+            </button>
+            <button type="button" class="btn-reset" onclick="resetAllRealtimeData()">
+              รีเซตค่าเริ่มต้น
+            </button>
           </div>
         </div>
-        <p class="note">ช่องกรอกเป็นคะแนนดิบ (เข้าเรียนครั้งละไม่เกิน 1 · การบ้านครั้งละไม่เกิน 11.5 · โปรเจกต์ไม่เกิน 45) ระบบแปลงเป็นสัดส่วน 25 / 30 / 45 ให้อัตโนมัติ · ช่องว่าง = ยังไม่ได้กรอก (ไม่ใช่ 0) · บันทึกอัตโนมัติ (เข้ารหัส) ในเบราว์เซอร์เครื่องนี้ · อย่าลืมกด “ดาวน์โหลดไฟล์สำรอง” เป็นระยะ · ล็อกตัวเองเมื่อไม่ได้ใช้งาน 15 นาที</p>
 
         <div class="table-wrapper">
           <table id="gradingTable">
             <thead>
               <tr class="header-group">
-                <th colspan="2" class="group-info">ข้อมูลนักศึกษา</th>
-                <th colspan="10" class="group-att">คะแนนการเข้าชั้นเรียนและควิซ (9 ครั้ง) - 25%</th>
-                <th colspan="5" class="group-hw">คะแนนการบ้านและเวิร์กชอป (4 ครั้ง) - 30%</th>
-                <th colspan="3" class="group-final">สรุปผล (Final) - 45%</th>
+                <th colspan="2" class="group-info sticky-col sticky-head">ข้อมูลนักศึกษา</th>
+                <th colspan="10" class="group-att">คะแนนการเข้าชั้นเรียน (9 ครั้ง) → สัดส่วน 25%</th>
+                <th colspan="5" class="group-hw">คะแนนการบ้าน (4 ครั้ง) → สัดส่วน 30%</th>
+                <th colspan="3" class="group-final">โปรเจกต์และสรุปผล</th>
               </tr>
               <tr class="header-sub">
-                <th style="min-width: 100px;">รหัสนักศึกษา</th>
-                <th style="min-width: 160px;">ชื่อ - นามสกุล</th>
-                <th title="16 ก.ย. 2026">16/09</th>
-                <th title="23 ก.ย. 2026">23/09</th>
-                <th title="30 ก.ย. 2026">30/09</th>
-                <th title="07 ต.ค. 2026">07/10</th>
-                <th title="14 ต.ค. 2026">14/10</th>
-                <th title="21 ต.ค. 2026">21/10</th>
-                <th title="28 ต.ค. 2026">28/10</th>
-                <th title="04 พ.ย. 2026">04/11</th>
-                <th title="11 พ.ย. 2026">11/11</th>
-                <th class="col-summary">รวมเข้าเรียน<br>(เต็ม 25)</th>
-                <th>ครั้งที่ 1</th>
-                <th>ครั้งที่ 2</th>
-                <th>ครั้งที่ 3</th>
-                <th>ครั้งที่ 4</th>
-                <th class="col-summary">รวมการบ้าน<br>(เต็ม 30)</th>
-                <th>Final Project<br>(เต็ม 45)</th>
-                <th class="col-total">คะแนนรวม<br>(เต็ม 100)</th>
+                <th class="sticky-col sticky-id sticky-head">รหัสนักศึกษา</th>
+                <th class="sticky-col sticky-name sticky-head">ชื่อ - นามสกุล</th>
+                <!-- เข้าชั้นเรียน 9 ครั้งตามวันที่กำหนด -->
+                <th>16.09.2026</th>
+                <th class="cancelled-head" title="ยกคลาส (คิด 1.0 ทุกคน)">23.09.2026<br><small>(ยกคลาส)</small></th>
+                <th>30.09.2026</th>
+                <th>07.10.2026</th>
+                <th>14.10.2026</th>
+                <th class="cancelled-head" title="ยกคลาส (คิด 1.0 ทุกคน)">21.10.2026<br><small>(ยกคลาส)</small></th>
+                <th class="cancelled-head" title="ยกคลาส (คิด 1.0 ทุกคน)">28.10.2026<br><small>(ยกคลาส)</small></th>
+                <th>04.11.2026</th>
+                <th>11.11.2026</th>
+                <th class="col-summary">รวมเข้าเรียน (25%)</th>
+                <!-- การบ้าน 4 ช่อง -->
+                <th>การบ้าน 1</th>
+                <th>การบ้าน 2</th>
+                <th>การบ้าน 3</th>
+                <th>การบ้าน 4</th>
+                <th class="col-summary">รวมการบ้าน (30%)</th>
+                <!-- โปรเจกต์ และ สรุป -->
+                <th>โปรเจกต์ (45)</th>
+                <th class="col-total">คะแนนรวม</th>
                 <th class="col-grade">เกรด</th>
               </tr>
             </thead>
-            <tbody id="gradingBody"></tbody>
+            <tbody id="gradingBody">
+              <!-- โหลดผ่าน JavaScript -->
+            </tbody>
           </table>
         </div>
       </div>
-    </main>
-  </div>
+    </section>
 
-  <!-- ข้อมูลนักศึกษา (เข้ารหัสแล้ว) ต้องโหลดก่อน grading.js -->
-  <script src="data/grades.enc.js"></script>
+    <!-- ==========================================================
+         แท็บที่ 2: จัดการคะแนนโปรเจกต์ (เรียงรายชื่อลงมา + ชื่อกลุ่ม + 7 เกณฑ์ 45 คะแนน)
+         ========================================================== -->
+    <section id="viewGroupTab" class="tab-view">
+      <div class="table-card">
+        <div class="table-controls">
+          <div>
+            <h3>จัดการคะแนนโปรเจกต์ (เรียงรายชื่อพร้อมชื่อกลุ่ม)</h3>
+            <p class="sub-hint">กรอกชื่อกลุ่ม หัวข้อโปรเจกต์ และคะแนน 7 เกณฑ์ (รวมเต็ม 45 คะแนน) แล้วกดดึงคะแนนไปหน้าแรกตามรหัสนักศึกษา</p>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn-add-group" onclick="addProjectMemberRow()">
+              + เพิ่มรายชื่อนักศึกษา
+            </button>
+            <button type="button" class="btn-sync" onclick="syncAndGoMain()">
+              ดึงคะแนนไปหน้าแรก
+            </button>
+            <button type="button" class="btn-export" onclick="exportToCSV()">
+              ส่งออก CSV (คะแนนรวม + โปรเจกต์)
+            </button>
+          </div>
+        </div>
+
+        <div class="rubric-legend">
+          <div class="rubric-chip">1. ที่มาและแนวคิด <strong>(5)</strong></div>
+          <div class="rubric-chip">2. การใช้ AI <strong>(10)</strong></div>
+          <div class="rubric-chip">3. ผลงานที่ทำได้จริง <strong>(10)</strong></div>
+          <div class="rubric-chip">4. การออกแบบ <strong>(5)</strong></div>
+          <div class="rubric-chip">5. เอกสารประกอบ <strong>(5)</strong></div>
+          <div class="rubric-chip">6. การใช้ AI อย่างรับผิดชอบ <strong>(5)</strong></div>
+          <div class="rubric-chip">7. การนำเสนอและสาธิต <strong>(5)</strong></div>
+          <div class="rubric-chip rubric-total">รวมทั้งหมด <strong>45</strong> คะแนน</div>
+        </div>
+
+        <div class="table-wrapper" style="margin-top: 1rem;">
+          <table id="groupScoreTable">
+            <thead>
+              <tr class="header-group">
+                <th colspan="4" class="group-info">กลุ่มและข้อมูลนักศึกษา</th>
+                <th colspan="7" class="group-hw">ช่องกรอกคะแนน 7 เกณฑ์ (รวม 45 คะแนน)</th>
+                <th colspan="2" class="group-final">สรุปและจัดการ</th>
+              </tr>
+              <tr class="header-sub">
+                <th style="min-width: 120px;">ชื่อกลุ่ม</th>
+                <th style="min-width: 105px;">รหัสนักศึกษา</th>
+                <th style="min-width: 185px;">ชื่อ - นามสกุล</th>
+                <th style="min-width: 170px;">หัวข้อโปรเจกต์</th>
+                <th title="1. ที่มาและแนวคิด (เต็ม 5)">1. แนวคิด<br><small>(/5)</small></th>
+                <th title="2. การใช้ AI (เต็ม 10)">2. ใช้ AI<br><small>(/10)</small></th>
+                <th title="3. ผลงานที่ทำได้จริง (เต็ม 10)">3. ผลงานจริง<br><small>(/10)</small></th>
+                <th title="4. การออกแบบและประสบการณ์ผู้ใช้ (เต็ม 5)">4. ออกแบบ<br><small>(/5)</small></th>
+                <th title="5. เอกสารประกอบ (เต็ม 5)">5. เอกสาร<br><small>(/5)</small></th>
+                <th title="6. การใช้ AI อย่างรับผิดชอบ (เต็ม 5)">6. รับผิดชอบ<br><small>(/5)</small></th>
+                <th title="7. การนำเสนอและสาธิต (เต็ม 5)">7. นำเสนอ<br><small>(/5)</small></th>
+                <th class="col-total">คะแนนรวม</th>
+                <th style="width: 75px;">จัดการ</th>
+              </tr>
+            </thead>
+            <tbody id="groupScoreBody">
+              <!-- โหลดผ่าน JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
   <script src="js/grading.js"></script>
 </body>
 </html>
