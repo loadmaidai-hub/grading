@@ -1,42 +1,6 @@
 /* ==========================================================================
-   FONT CONFIGURATION: LINE Seed Sans TH ONLY
+   FONT CONFIGURATION: Kanit ONLY
    ========================================================================== */
-@font-face {
-  font-family: 'LINE Seed Sans TH';
-  src: local('LINE Seed Sans TH Regular'), local('LINE Seed Sans TH'), local('LINESeedSansTH-Regular'),
-       url('./LINE_Seed_Sans_TH_V1.003/Web/WOFF2/LINESeedSansTH_W_Rg.woff2') format('woff2'),
-       url('./LINE_Seed_Sans_TH_V1.003/Web/WOFF/LINESeedSansTH_W_Rg.woff') format('woff'),
-       url('./LINE_Seed_Sans_TH_V1.003/Desktop/TTF/LINESeedSansTH_Rg.ttf') format('truetype'),
-       url('https://cdn.jsdelivr.net/gh/line/line-seed-sans-th@main/fonts/woff2/LINESeedSansTH_W_Rg.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'LINE Seed Sans TH';
-  src: local('LINE Seed Sans TH Bold'), local('LINE Seed Sans TH'), local('LINESeedSansTH-Bold'),
-       url('./LINE_Seed_Sans_TH_V1.003/Web/WOFF2/LINESeedSansTH_W_Bd.woff2') format('woff2'),
-       url('./LINE_Seed_Sans_TH_V1.003/Web/WOFF/LINESeedSansTH_W_Bd.woff') format('woff'),
-       url('./LINE_Seed_Sans_TH_V1.003/Desktop/TTF/LINESeedSansTH_Bd.ttf') format('truetype'),
-       url('https://cdn.jsdelivr.net/gh/line/line-seed-sans-th@main/fonts/woff2/LINESeedSansTH_W_Bd.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'LINE Seed Sans TH';
-  src: local('LINE Seed Sans TH Heavy'), local('LINE Seed Sans TH ExtraBold'), local('LINESeedSansTH-ExtraBold'),
-       url('./LINE_Seed_Sans_TH_V1.003/Web/WOFF2/LINESeedSansTH_W_XBd.woff2') format('woff2'),
-       url('./LINE_Seed_Sans_TH_V1.003/Web/WOFF/LINESeedSansTH_W_XBd.woff') format('woff'),
-       url('./LINE_Seed_Sans_TH_V1.003/Desktop/TTF/LINESeedSansTH_XBd.ttf') format('truetype'),
-       url('https://cdn.jsdelivr.net/gh/line/line-seed-sans-th@main/fonts/woff2/LINESeedSansTH_W_XBd.woff2') format('woff2');
-  font-weight: 800 900;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --primary: #4338CA;
   --primary-hover: #3730A3;
@@ -44,14 +8,14 @@
   --bg-main: #F8FAFC;
   --border-soft: #E2E8F0;
   --text-muted: #64748B;
-  --font-family: 'LINE Seed Sans TH';
+  --font-family: 'Kanit', sans-serif;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'LINE Seed Sans TH' !important;
+  font-family: 'Kanit', sans-serif !important;
 }
 
 body {
@@ -81,7 +45,7 @@ body {
 
 .header-content h2 {
   font-size: 1.15rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 0.35rem;
 }
 
@@ -102,10 +66,10 @@ body {
   background: #ECFDF5;
   color: #059669;
   border: 1px solid #A7F3D0;
-  padding: 0.15rem 0.6rem;
+  padding: 0.15rem 0.65rem;
   border-radius: 9999px;
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-left: 0.4rem;
 }
 
@@ -122,7 +86,7 @@ body {
   background: transparent;
   padding: 0.55rem 1rem;
   border-radius: 9px;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.88rem;
   color: #475569;
   cursor: pointer;
@@ -184,7 +148,7 @@ body {
   border: none;
   padding: 0.6rem 1.1rem;
   border-radius: 8px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -194,7 +158,7 @@ body {
   border: none;
   padding: 0.6rem 1.1rem;
   border-radius: 8px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -204,7 +168,7 @@ body {
   border: none;
   padding: 0.6rem 1.1rem;
   border-radius: 8px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -214,7 +178,7 @@ body {
   border: 1px solid #FECACA;
   padding: 0.6rem 1rem;
   border-radius: 8px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -225,7 +189,7 @@ body {
   padding: 0.25rem 0.6rem;
   border-radius: 6px;
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -267,16 +231,16 @@ table {
 }
 
 th, td {
-  padding: 0.55rem 0.5rem;
+  padding: 0.52rem 0.45rem;
   border-right: 1px solid var(--border-soft);
   border-bottom: 1px solid var(--border-soft);
   white-space: nowrap;
 }
 
 .header-group th {
-  font-weight: 800;
+  font-weight: 700;
   font-size: 0.9rem;
-  padding: 0.7rem;
+  padding: 0.65rem;
   color: white;
 }
 
@@ -288,12 +252,31 @@ th, td {
 .header-sub th {
   background: #F8FAFC;
   color: #334155;
-  font-weight: 700;
+  font-weight: 600;
+}
+
+.header-date-row th {
+  background: #FFFFFF;
+  color: #0F172A;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.38rem 0.4rem;
+  border-bottom: 2px solid #CBD5E1;
+}
+
+.date-cell {
+  color: #334155 !important;
 }
 
 .cancelled-head {
   background: #EFF6FF !important;
   color: #1D4ED8 !important;
+}
+
+.cancelled-date {
+  background: #ECFDF5 !important;
+  color: #059669 !important;
+  font-weight: 600 !important;
 }
 
 .cancelled-cell {
@@ -331,7 +314,7 @@ th, td {
   min-width: 115px;
   width: 115px;
   text-align: left;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 #gradingTable .sticky-name {
@@ -339,8 +322,14 @@ th, td {
   min-width: 215px;
   width: 215px;
   text-align: left;
-  font-weight: 700;
+  font-weight: 600;
   box-shadow: 2px 0 6px rgba(15, 23, 42, 0.08);
+}
+
+#gradingTable thead .sticky-date-head {
+  background-color: #F8FAFC;
+  color: #475569;
+  font-weight: 600;
 }
 
 #gradingTable tbody tr:hover td.sticky-col {
@@ -348,13 +337,13 @@ th, td {
 }
 
 input.score-in {
-  width: 56px;
+  width: 58px;
   text-align: center;
   padding: 0.28rem;
   border: 1px solid #CBD5E1;
   border-radius: 5px;
   outline: none;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.84rem;
 }
 
@@ -370,12 +359,12 @@ input.group-name-in {
   border: 1px solid #CBD5E1;
   border-radius: 5px;
   outline: none;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.82rem;
 }
 
 input.topic-in {
-  width: 165px;
+  width: 205px;
   text-align: left;
   padding: 0.3rem 0.45rem;
   border: 1px solid #CBD5E1;
@@ -386,19 +375,19 @@ input.topic-in {
 
 .col-summary {
   background: #F1F5F9;
-  font-weight: 800;
+  font-weight: 700;
   color: #0F172A;
 }
 
 .col-total {
   background: #EEF2FF;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--primary);
   font-size: 0.92rem;
 }
 
 .col-grade {
-  font-weight: 900;
+  font-weight: 800;
   font-size: 1rem;
 }
 
