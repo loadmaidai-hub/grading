@@ -290,9 +290,6 @@ th, td {
   opacity: 1;
 }
 
-/* ==========================================================
-   ตรึงคอลัมน์ รหัสนักศึกษา และ ชื่อ - นามสกุล ในแท็บแรก
-   ========================================================== */
 #gradingTable .sticky-col {
   position: sticky;
   z-index: 15;
@@ -330,9 +327,6 @@ th, td {
   background-color: #F1F5F9;
 }
 
-/* ==========================================================
-   สไตล์ช่องที่ล็อคในหน้าโปรเจกต์
-   ========================================================== */
 .locked-cell {
   background-color: #F8FAFC;
   color: #1E293B;
@@ -340,12 +334,6 @@ th, td {
 }
 
 .seq-col {
-  font-weight: 700;
-  color: #475569;
-  text-align: center;
-}
-
-.group-col {
   font-weight: 700;
   text-align: center;
 }
@@ -362,7 +350,9 @@ th, td {
 
 .topic-col {
   text-align: left;
-  max-width: 220px;
+  white-space: normal;
+  min-width: 240px;
+  max-width: 340px;
 }
 
 .group-num-pill {
@@ -370,9 +360,9 @@ th, td {
   background: #EEF2FF;
   color: #3730A3;
   border: 1px solid #C7D2FE;
-  padding: 0.15rem 0.55rem;
+  padding: 0.15rem 0.6rem;
   border-radius: 9999px;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
 }
 
@@ -381,6 +371,7 @@ th, td {
   font-weight: 600;
   color: #0F172A;
   font-size: 0.82rem;
+  line-height: 1.35;
 }
 
 .merged-placeholder {
