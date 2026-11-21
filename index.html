@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ระบบตัดเกรด 969-042G4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/grading.css">
 </head>
 <body>
@@ -38,7 +41,7 @@
   <main class="main-container">
 
     <!-- ==========================================================
-         แท็บที่ 1: หน้าแรก - ตารางบันทึกคะแนนรวมและตัดเกรด (เข้าเรียน 9 ครั้ง)
+         แท็บที่ 1: หน้าแรก - ตารางบันทึกคะแนนรวมและตัดเกรด (เข้าเรียน 9 ครั้ง + วันที่ด้านล่าง)
          ========================================================== -->
     <section id="viewMainTab" class="tab-view active">
       <div class="table-card">
@@ -72,16 +75,16 @@
               <tr class="header-sub">
                 <th class="sticky-col sticky-id sticky-head">รหัสนักศึกษา</th>
                 <th class="sticky-col sticky-name sticky-head">ชื่อ - นามสกุล</th>
-                <!-- เข้าชั้นเรียน 9 ครั้งตามวันที่กำหนด -->
-                <th>16.09.2026</th>
-                <th class="cancelled-head" title="ยกคลาส (คิด 1.0 ทุกคน)">23.09.2026<br><small>(ยกคลาส)</small></th>
-                <th>30.09.2026</th>
-                <th>07.10.2026</th>
-                <th>14.10.2026</th>
-                <th class="cancelled-head" title="ยกคลาส (คิด 1.0 ทุกคน)">21.10.2026<br><small>(ยกคลาส)</small></th>
-                <th class="cancelled-head" title="ยกคลาส (คิด 1.0 ทุกคน)">28.10.2026<br><small>(ยกคลาส)</small></th>
-                <th>04.11.2026</th>
-                <th>11.11.2026</th>
+                <!-- เข้าชั้นเรียน 9 ครั้ง -->
+                <th>ครั้งที่ 1</th>
+                <th class="cancelled-head" title="ยกคลาส (คิด 1.0 ทุกคน)">ครั้งที่ 2<br><small>(ยกคลาส)</small></th>
+                <th>ครั้งที่ 3</th>
+                <th>ครั้งที่ 4</th>
+                <th>ครั้งที่ 5</th>
+                <th class="cancelled-head" title="ยกคลาส (คิด 1.0 ทุกคน)">ครั้งที่ 6<br><small>(ยกคลาส)</small></th>
+                <th class="cancelled-head" title="ยกคลาส (คิด 1.0 ทุกคน)">ครั้งที่ 7<br><small>(ยกคลาส)</small></th>
+                <th>ครั้งที่ 8</th>
+                <th>ครั้งที่ 9</th>
                 <th class="col-summary">รวมเข้าเรียน (25%)</th>
                 <!-- การบ้าน 4 ช่อง -->
                 <th>การบ้าน 1</th>
@@ -94,6 +97,28 @@
                 <th class="col-total">คะแนนรวม</th>
                 <th class="col-grade">เกรด</th>
               </tr>
+              <tr class="header-date-row">
+                <th class="sticky-col sticky-id sticky-date-head">วันที่สอน</th>
+                <th class="sticky-col sticky-name sticky-date-head">ปฏิทินการเรียน</th>
+                <th class="date-cell">16.09.2026</th>
+                <th class="date-cell cancelled-date">23.09.2026</th>
+                <th class="date-cell">30.09.2026</th>
+                <th class="date-cell">07.10.2026</th>
+                <th class="date-cell">14.10.2026</th>
+                <th class="date-cell cancelled-date">21.10.2026</th>
+                <th class="date-cell cancelled-date">28.10.2026</th>
+                <th class="date-cell">04.11.2026</th>
+                <th class="date-cell">11.11.2026</th>
+                <th class="col-summary date-summary">25%</th>
+                <th class="date-cell">-</th>
+                <th class="date-cell">-</th>
+                <th class="date-cell">-</th>
+                <th class="date-cell">-</th>
+                <th class="col-summary date-summary">30%</th>
+                <th class="date-cell">45</th>
+                <th class="col-total date-summary">100%</th>
+                <th class="col-grade date-summary">A–E</th>
+              </tr>
             </thead>
             <tbody id="gradingBody">
               <!-- โหลดผ่าน JavaScript -->
@@ -104,14 +129,14 @@
     </section>
 
     <!-- ==========================================================
-         แท็บที่ 2: จัดการคะแนนโปรเจกต์ (เรียงรายชื่อลงมา + ชื่อกลุ่ม + 7 เกณฑ์ 45 คะแนน)
+         แท็บที่ 2: จัดการคะแนนโปรเจกต์ (เรียงรายชื่อลงมา + ชื่อกลุ่มตามรูปภาพ + 7 เกณฑ์ 45 คะแนน)
          ========================================================== -->
     <section id="viewGroupTab" class="tab-view">
       <div class="table-card">
         <div class="table-controls">
           <div>
-            <h3>จัดการคะแนนโปรเจกต์ (เรียงรายชื่อพร้อมชื่อกลุ่ม)</h3>
-            <p class="sub-hint">กรอกชื่อกลุ่ม หัวข้อโปรเจกต์ และคะแนน 7 เกณฑ์ (รวมเต็ม 45 คะแนน) แล้วกดดึงคะแนนไปหน้าแรกตามรหัสนักศึกษา</p>
+            <h3>จัดการคะแนนโปรเจกต์ (27 กลุ่ม / 64 คน)</h3>
+            <p class="sub-hint">ข้อมูลชื่อกลุ่มและรายชื่อสมาชิกเรียงลงมาตามรูปภาพ สามารถแก้ไขคะแนน 7 เกณฑ์ (รวมเต็ม 45 คะแนน) แล้วดึงคะแนนไปหน้าแรกตามรหัสนักศึกษา</p>
           </div>
           <div class="btn-group">
             <button type="button" class="btn-add-group" onclick="addProjectMemberRow()">
@@ -149,7 +174,7 @@
                 <th style="min-width: 120px;">ชื่อกลุ่ม</th>
                 <th style="min-width: 105px;">รหัสนักศึกษา</th>
                 <th style="min-width: 185px;">ชื่อ - นามสกุล</th>
-                <th style="min-width: 170px;">หัวข้อโปรเจกต์</th>
+                <th style="min-width: 210px;">หัวข้อโปรเจกต์</th>
                 <th title="1. ที่มาและแนวคิด (เต็ม 5)">1. แนวคิด<br><small>(/5)</small></th>
                 <th title="2. การใช้ AI (เต็ม 10)">2. ใช้ AI<br><small>(/10)</small></th>
                 <th title="3. ผลงานที่ทำได้จริง (เต็ม 10)">3. ผลงานจริง<br><small>(/10)</small></th>
