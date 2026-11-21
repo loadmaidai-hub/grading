@@ -63,10 +63,6 @@ input, button, select, textarea {
   gap: 0.35rem;
 }
 
-.grade-scale-info span {
-  margin-right: 0.2rem;
-}
-
 .scale-e {
   color: #EF4444;
 }
@@ -265,6 +261,11 @@ th, td {
   line-height: 1.25;
 }
 
+.locked-head {
+  background: #F1F5F9 !important;
+  color: #1E293B !important;
+}
+
 .sub-date {
   display: inline-block;
   font-size: 0.72rem;
@@ -329,6 +330,64 @@ th, td {
   background-color: #F1F5F9;
 }
 
+/* ==========================================================
+   สไตล์ช่องที่ล็อคในหน้าโปรเจกต์
+   ========================================================== */
+.locked-cell {
+  background-color: #F8FAFC;
+  color: #1E293B;
+  user-select: none;
+}
+
+.seq-col {
+  font-weight: 700;
+  color: #475569;
+  text-align: center;
+}
+
+.group-col {
+  font-weight: 700;
+  text-align: center;
+}
+
+.id-col {
+  font-weight: 600;
+  text-align: left;
+}
+
+.name-col {
+  font-weight: 600;
+  text-align: left;
+}
+
+.topic-col {
+  text-align: left;
+  max-width: 220px;
+}
+
+.group-num-pill {
+  display: inline-block;
+  background: #EEF2FF;
+  color: #3730A3;
+  border: 1px solid #C7D2FE;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.locked-topic-text {
+  display: inline-block;
+  font-weight: 600;
+  color: #0F172A;
+  font-size: 0.82rem;
+}
+
+.merged-placeholder {
+  color: #CBD5E1;
+  font-weight: 400;
+}
+
 input.score-in {
   width: 56px;
   text-align: center;
@@ -343,27 +402,6 @@ input.score-in {
 input.score-in:focus {
   border-color: var(--primary);
   background: #EEF2FF;
-}
-
-input.group-name-in {
-  width: 105px;
-  text-align: left;
-  padding: 0.3rem 0.45rem;
-  border: 1px solid #CBD5E1;
-  border-radius: 5px;
-  outline: none;
-  font-weight: 600;
-  font-size: 0.82rem;
-}
-
-input.topic-in {
-  width: 165px;
-  text-align: left;
-  padding: 0.3rem 0.45rem;
-  border: 1px solid #CBD5E1;
-  border-radius: 5px;
-  outline: none;
-  font-size: 0.82rem;
 }
 
 .col-summary {
