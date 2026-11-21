@@ -1,9 +1,12 @@
 /* ==========================================================================
-   FONT CONFIGURATION: LINE Seed Sans TH
+   FONT CONFIGURATION: LINE Seed Sans TH ONLY
    ========================================================================== */
 @font-face {
   font-family: 'LINE Seed Sans TH';
-  src: local('LINE Seed Sans TH Regular'), local('LINE Seed Sans TH'),
+  src: local('LINE Seed Sans TH Regular'), local('LINE Seed Sans TH'), local('LINESeedSansTH-Regular'),
+       url('./LINE_Seed_Sans_TH_V1.003/Web/WOFF2/LINESeedSansTH_W_Rg.woff2') format('woff2'),
+       url('./LINE_Seed_Sans_TH_V1.003/Web/WOFF/LINESeedSansTH_W_Rg.woff') format('woff'),
+       url('./LINE_Seed_Sans_TH_V1.003/Desktop/TTF/LINESeedSansTH_Rg.ttf') format('truetype'),
        url('https://cdn.jsdelivr.net/gh/line/line-seed-sans-th@main/fonts/woff2/LINESeedSansTH_W_Rg.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
@@ -12,7 +15,10 @@
 
 @font-face {
   font-family: 'LINE Seed Sans TH';
-  src: local('LINE Seed Sans TH Bold'), local('LINESeedSansTH-Bold'),
+  src: local('LINE Seed Sans TH Bold'), local('LINE Seed Sans TH'), local('LINESeedSansTH-Bold'),
+       url('./LINE_Seed_Sans_TH_V1.003/Web/WOFF2/LINESeedSansTH_W_Bd.woff2') format('woff2'),
+       url('./LINE_Seed_Sans_TH_V1.003/Web/WOFF/LINESeedSansTH_W_Bd.woff') format('woff'),
+       url('./LINE_Seed_Sans_TH_V1.003/Desktop/TTF/LINESeedSansTH_Bd.ttf') format('truetype'),
        url('https://cdn.jsdelivr.net/gh/line/line-seed-sans-th@main/fonts/woff2/LINESeedSansTH_W_Bd.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
@@ -21,7 +27,10 @@
 
 @font-face {
   font-family: 'LINE Seed Sans TH';
-  src: local('LINE Seed Sans TH Heavy'), local('LINE Seed Sans TH ExtraBold'),
+  src: local('LINE Seed Sans TH Heavy'), local('LINE Seed Sans TH ExtraBold'), local('LINESeedSansTH-ExtraBold'),
+       url('./LINE_Seed_Sans_TH_V1.003/Web/WOFF2/LINESeedSansTH_W_XBd.woff2') format('woff2'),
+       url('./LINE_Seed_Sans_TH_V1.003/Web/WOFF/LINESeedSansTH_W_XBd.woff') format('woff'),
+       url('./LINE_Seed_Sans_TH_V1.003/Desktop/TTF/LINESeedSansTH_XBd.ttf') format('truetype'),
        url('https://cdn.jsdelivr.net/gh/line/line-seed-sans-th@main/fonts/woff2/LINESeedSansTH_W_XBd.woff2') format('woff2');
   font-weight: 800 900;
   font-style: normal;
@@ -30,89 +39,371 @@
 
 :root {
   --primary: #4338CA;
+  --primary-hover: #3730A3;
   --dark: #0F172A;
   --bg-main: #F8FAFC;
   --border-soft: #E2E8F0;
-  --font-family: 'LINE Seed Sans TH', -apple-system, BlinkMacSystemFont, sans-serif;
+  --text-muted: #64748B;
+  --font-family: 'LINE Seed Sans TH';
 }
 
-* { 
-  box-sizing: border-box; 
-  margin: 0; 
-  padding: 0; 
-  font-family: var(--font-family) !important;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'LINE Seed Sans TH' !important;
 }
 
-body { background: var(--bg-main); color: var(--dark); padding-bottom: 2rem; }
+body {
+  background: var(--bg-main);
+  color: var(--dark);
+  padding-bottom: 2.5rem;
+}
 
 .header-bar {
   background: white;
-  padding: 1.2rem 2rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  position: sticky; top: 0; z-index: 100;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 200;
 }
-.header-content h2 { font-size: 1.2rem; margin-bottom: 0.4rem; }
-.grade-scale-info { font-size: 0.85rem; color: #475569; }
-.grade-scale-info span { margin-right: 0.5rem; }
 
-.main-container { padding: 1.5rem; max-width: 1600px; margin: 0 auto; }
-.table-card { background: white; border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid var(--border-soft); }
-.table-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-.btn-export { background: #059669; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; cursor: pointer; }
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 1750px;
+  margin: 0 auto;
+}
 
-.table-wrapper { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border-soft); }
-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: center; }
-th, td { padding: 0.6rem; border: 1px solid var(--border-soft); white-space: nowrap; }
+.header-content h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+}
 
-/* หัวตารางจัดกลุ่ม */
-.header-group th { font-weight: 800; font-size: 0.95rem; padding: 0.8rem; color: white; }
+.grade-scale-info {
+  font-size: 0.85rem;
+  color: #475569;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.scale-e {
+  color: #EF4444;
+}
+
+.realtime-badge {
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid #A7F3D0;
+  padding: 0.15rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-left: 0.4rem;
+}
+
+.tab-nav {
+  display: flex;
+  gap: 0.5rem;
+  background: #F1F5F9;
+  padding: 0.35rem;
+  border-radius: 12px;
+}
+
+.tab-btn {
+  border: none;
+  background: transparent;
+  padding: 0.55rem 1rem;
+  border-radius: 9px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 2px 8px rgba(67, 56, 202, 0.25);
+}
+
+.tab-view {
+  display: none;
+}
+
+.tab-view.active {
+  display: block;
+}
+
+.main-container {
+  padding: 1.5rem;
+  max-width: 1750px;
+  margin: 0 auto;
+}
+
+.table-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border-soft);
+}
+
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sub-hint {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.btn-export {
+  background: #059669;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-sync {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-add-group {
+  background: #0284C7;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-reset {
+  background: #FEF2F2;
+  color: #DC2626;
+  border: 1px solid #FECACA;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-mini {
+  background: #FEF2F2;
+  color: #DC2626;
+  border: 1px solid #FECACA;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rubric-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.rubric-chip {
+  background: #F8FAFC;
+  border: 1px solid var(--border-soft);
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #334155;
+}
+
+.rubric-total {
+  background: #EEF2FF;
+  border-color: #C7D2FE;
+  color: var(--primary);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  max-height: 72vh;
+  border-radius: 8px;
+  border: 1px solid var(--border-soft);
+  position: relative;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.84rem;
+  text-align: center;
+}
+
+th, td {
+  padding: 0.55rem 0.5rem;
+  border-right: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+  white-space: nowrap;
+}
+
+.header-group th {
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 0.7rem;
+  color: white;
+}
+
 .group-info { background: #475569; }
 .group-att { background: #3B82F6; }
-.group-hw { background: #F59E0B; }
+.group-hw { background: #D97706; }
 .group-final { background: #4338CA; }
 
-.header-sub th { background: #F8FAFC; color: #334155; font-weight: 700; }
-.header-sub th:nth-child(1), .header-sub th:nth-child(2) { text-align: left; }
-td:nth-child(1), td:nth-child(2) { text-align: left; font-weight: 700; }
+.header-sub th {
+  background: #F8FAFC;
+  color: #334155;
+  font-weight: 700;
+}
 
-input.score-in { width: 50px; text-align: center; padding: 0.3rem; border: 1px solid #CBD5E1; border-radius: 4px; outline: none; font-weight: 700; }
-input.score-in:focus { border-color: var(--primary); background: #EEF2FF; }
+.cancelled-head {
+  background: #EFF6FF !important;
+  color: #1D4ED8 !important;
+}
 
-.col-summary { background: #F1F5F9; font-weight: 800; color: #0F172A; }
-.col-total { background: #EEF2FF; font-weight: 800; color: var(--primary); font-size: 0.95rem; }
-.col-grade { font-weight: 900; font-size: 1.05rem; }
+.cancelled-cell {
+  background: #F0FDF4;
+}
+
+.score-cancelled {
+  background: #DCFCE7 !important;
+  color: #059669 !important;
+  border-color: #86EFAC !important;
+  opacity: 1;
+}
+
+/* ==========================================================
+   ตรึงคอลัมน์ รหัสนักศึกษา และ ชื่อ - นามสกุล ในแท็บแรก
+   ========================================================== */
+#gradingTable .sticky-col {
+  position: sticky;
+  z-index: 15;
+  background-color: #FFFFFF;
+}
+
+#gradingTable thead .sticky-col {
+  z-index: 25;
+}
+
+#gradingTable thead .group-info.sticky-col {
+  left: 0;
+  background-color: #475569;
+  box-shadow: 2px 0 6px rgba(15, 23, 42, 0.12);
+}
+
+#gradingTable .sticky-id {
+  left: 0;
+  min-width: 115px;
+  width: 115px;
+  text-align: left;
+  font-weight: 700;
+}
+
+#gradingTable .sticky-name {
+  left: 115px;
+  min-width: 215px;
+  width: 215px;
+  text-align: left;
+  font-weight: 700;
+  box-shadow: 2px 0 6px rgba(15, 23, 42, 0.08);
+}
+
+#gradingTable tbody tr:hover td.sticky-col {
+  background-color: #F1F5F9;
+}
+
+input.score-in {
+  width: 56px;
+  text-align: center;
+  padding: 0.28rem;
+  border: 1px solid #CBD5E1;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 700;
+  font-size: 0.84rem;
+}
+
+input.score-in:focus {
+  border-color: var(--primary);
+  background: #EEF2FF;
+}
+
+input.group-name-in {
+  width: 115px;
+  text-align: left;
+  padding: 0.3rem 0.45rem;
+  border: 1px solid #CBD5E1;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+input.topic-in {
+  width: 165px;
+  text-align: left;
+  padding: 0.3rem 0.45rem;
+  border: 1px solid #CBD5E1;
+  border-radius: 5px;
+  outline: none;
+  font-size: 0.82rem;
+}
+
+.col-summary {
+  background: #F1F5F9;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.col-total {
+  background: #EEF2FF;
+  font-weight: 800;
+  color: var(--primary);
+  font-size: 0.92rem;
+}
+
+.col-grade {
+  font-weight: 900;
+  font-size: 1rem;
+}
 
 .grade-A { color: #059669; }
 .grade-Bplus, .grade-B { color: #2563EB; }
 .grade-Cplus, .grade-C { color: #D97706; }
 .grade-Dplus, .grade-D { color: #EA580C; }
 .grade-E { color: #DC2626; }
-
-/* ===== v3: หน้าใส่รหัส, ปุ่ม, สถานะบันทึก ===== */
-[hidden] { display: none !important; }
-.note { font-size: 0.85rem; color: #475569; margin-bottom: 0.8rem; }
-.table-controls { flex-wrap: wrap; gap: 0.6rem; }
-.btn-group { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-.btn-backup { background: #4338CA; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; cursor: pointer; }
-.btn-secondary { background: #E2E8F0; color: #0F172A; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; cursor: pointer; }
-.btn-primary { background: #4338CA; color: white; border: none; padding: 0.7rem 1.4rem; border-radius: 8px; font-weight: 700; cursor: pointer; }
-.btn-primary:disabled { opacity: 0.6; cursor: wait; }
-.save-status { font-size: 0.85rem; color: #475569; }
-.save-status.ok { color: #059669; }
-.save-status.err { color: #DC2626; font-weight: 700; }
-
-.modal-backdrop { position: fixed; inset: 0; background: #0F172A; display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 1rem; }
-#pwModal { background: rgba(15, 23, 42, 0.85); }
-.modal { background: white; border-radius: 16px; padding: 1.8rem; width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 0.8rem; }
-.modal h3 { font-size: 1.15rem; }
-.modal-text { font-size: 0.9rem; color: #475569; }
-.modal-input { padding: 0.7rem; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 1rem; }
-.modal-input:focus { border-color: var(--primary); outline: none; background: #EEF2FF; }
-.modal-actions { display: flex; gap: 0.5rem; }
-.msg-err { color: #DC2626; font-size: 0.85rem; min-height: 1.1rem; }
-.link-btn { background: none; border: none; color: #475569; text-decoration: underline; cursor: pointer; font-size: 0.8rem; }
-
-/* ===== v5: ลืมรหัสผ่าน / รหัสกู้คืน ===== */
-.overlay { background: rgba(15, 23, 42, 0.85); }
-.mono { font-family: ui-monospace, Menlo, Consolas, monospace !important; font-size: 0.9rem; }
-.rc-code { font-family: ui-monospace, Menlo, Consolas, monospace !important; font-size: 1.05rem; font-weight: 800; background: #EEF2FF; border-radius: 8px; padding: 0.9rem; text-align: center; word-break: break-all; user-select: all; }
